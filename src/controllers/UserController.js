@@ -3,6 +3,8 @@ import User from '../models/User.js'
 async function getUsers(request, response) {
   const users = await User.find()
 
+  console.log(JSON.stringify(users, undefined, 2))
+
   return response.status(200).json(users)
 }
 
@@ -22,4 +24,28 @@ async function deleteUser(request, response){
   return response.status(200).json({ response: "User deleted"})
 }
 
-export { getUsers, createUser, deleteUser }
+async function updateUser(request, response){
+  const id  = request.params.id
+
+  const update = request.body
+
+  console.log(JSON.stringify(update, undefined, 2))
+
+  await User.findByIdAndUpdate({ _id: id }, update)
+
+  return response.status(200).json({ response: "User updated"})
+}
+
+async function findByName(request, response){
+  const name = request.body.name
+
+  const user = await User.findOne({name : name})
+
+  console.log(JSON.stringify(user, undefined, 2))
+
+  return response.status(200).json(user)
+
+}
+
+
+export { getUsers, createUser, deleteUser, updateUser, findByName}
