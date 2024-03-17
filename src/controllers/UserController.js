@@ -47,5 +47,15 @@ async function findByName(request, response){
 
 }
 
+async function report(request, response){
+   
+  const [{ totalUsers }] = await User.aggregate([{$group: {_id: null, totalUsers: {$sum: 1}}}])
+  
+  console.log([{ totalUsers }])
 
-export { getUsers, createUser, deleteUser, updateUser, findByName}
+  return response.status(200).json([{ totalUsers }])
+
+}
+
+
+export { getUsers, createUser, deleteUser, updateUser, findByName, report}
