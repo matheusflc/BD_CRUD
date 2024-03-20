@@ -1,12 +1,16 @@
 import express from "express";
 
 import connectDatabase from "./database/db.js";
-import routes from './routes.js'
+import UserRoutes from "../routes/UserRoutes.js";
+import EstoqueRoutes from "../routes/EstoqueRoutes.js";
+import ComandaRoutes from "../routes/ComandaRoutes.js";
 
 const app = express();
 
 app.use(express.json());
-app.use(routes);
+app.use(UserRoutes);
+app.use(EstoqueRoutes);
+app.use(ComandaRoutes);
 
 connectDatabase()
 .then(() => {

@@ -9,6 +9,19 @@ const userSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  cpf: { 
+    type: String, 
+    required: true,
+    unique: true,
+  },
+  telefone: {
+    type: String,
+    required: false,
+  },
+  endereco: {
+    type: String,
+    required: false,
+  },
   flamengo: {
     type: Boolean,
     required: true,
@@ -21,10 +34,15 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  vendedor: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
   createdAt: {
     type: Date,
     default: Date.now(),
   },
 });
 
-export default mongoose.model("User", userSchema)
+export default mongoose.model("User", userSchema);
