@@ -1,4 +1,4 @@
-import { mongoose } from "mongoose";
+import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -14,14 +14,16 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  telefone: {
-    type: String,
-    required: false,
-  },
-  endereco: {
-    type: String,
-    required: false,
-  },
+  contato: [{
+    telefone: {
+      type: String,
+      required: false,
+    },
+    endereco: {
+      type: String,
+      required: false,
+    }
+  }],
   flamengo: {
     type: Boolean,
     required: true,
