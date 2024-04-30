@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,48 @@
   to {
     transform: rotate(360deg);
   }
+} */
+.App {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+.columnTitle {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.scrollContainer {
+  max-height: 80vh; /* Ajuste conforme necessário */
+  overflow-y: auto;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 5px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card h1 {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.card h1:first-child {
+  color: #007bff;
+  font-weight: bold;
 }

@@ -1,0 +1,69 @@
+/* LoginPage.css */
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/public/civic.jpg'); /* Certifique-se de que o caminho está correto */
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Necessário para o posicionamento do pseudo-elemento */
+  }
+
+    .loginContainer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7); /* Ajuste a opacidade aqui para escurecer mais ou menos */
+        z-index: 1;
+    }
+  
+    .loginForm {
+        padding: 60px 68px 40px;
+        background-color: rgba(0, 0, 0, 0.75); /* Fundo preto com transparência */
+        border-radius: 4px;
+        box-shadow: 0 1px 18px rgba(0, 0, 0, 0.7);
+        max-width: 320px;
+        color: #fff;
+        position: relative; /* Garante que o formulário fique acima da sobreposição escura */
+        z-index: 2;
+    }
+  
+  .loginForm label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .loginForm input {
+    background: #333;
+    border: 1px solid #333;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-radius: 4px;
+    color: #fff;
+  }
+  
+  .loginForm input:focus {
+    border-color: #e50914;
+  }
+  
+  .loginForm button {
+    background-color: #e50914;
+    border: none;
+    padding: 16px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  .loginForm button:hover {
+    background-color: #f6121d;
+  }
