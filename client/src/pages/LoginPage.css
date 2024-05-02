@@ -1,4 +1,15 @@
 /* LoginPage.css */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Previne a rolagem horizontal se a imagem for muito larga */
+  }
+  
+  /* Garante que o body ocupe a altura total da janela do navegador */
+  body, #root {
+    height: 100%;
+    min-height: 100vh; /* vh representa a altura da viewport */
+  }
 
 .loginContainer {
     display: flex;
