@@ -1,0 +1,79 @@
+/* SignUpPage.css */
+
+/* Estilização para os checkboxes ficarem um abaixo do outro */
+.checkbox-group label {
+    display: block; /* Faz cada label ocupar sua própria linha */
+    margin-bottom: 10px; /* Espaçamento entre os checkboxes */
+    color: white; /* Cor do texto para se assemelhar ao tema da Netflix */
+    cursor: pointer;
+  }
+  
+  .checkbox-group input[type="checkbox"] {
+    margin-right: 10px; /* Espaçamento entre o checkbox e o texto */
+  }
+  
+  /* Estilo adicional para se assemelhar ao tema da Netflix */
+  .signup-background {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Faz o background ocupar a altura total da tela */
+    background-color: #141414; /* Cor de fundo escura, ajuste conforme necessário */
+  }
+  
+  .signup-container {
+    width: 100%; /* Faz o container ocupar a largura necessária */
+    max-width: 400px; /* Limita a largura máxima do container */
+    margin: auto; /* Centraliza o container na tela */
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #333; /* Cor de fundo do container, ajuste conforme necessário */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra para destacar o container */
+  }
+  
+  .signup-container h1 {
+    color: #E50914; /* Cor vermelha característica da Netflix */
+    text-align: center;
+  }
+  
+  .signup-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .signup-container input[type="text"],
+  .signup-container input[type="number"],
+  .signup-container input[type="checkbox"] + label {
+    background-color: #333;
+    border: 1px solid #333;
+    color: white;
+    padding: 10px;
+    margin-bottom: 15px; /* Espaçamento entre os campos de formulário */
+    border-radius: 4px;
+  }
+  
+  .signup-container button {
+    background-color: #E50914; /* Botão com a cor característica da Netflix */
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .signup-container button:hover {
+    background-color: #f6121d; /* Um tom mais claro para o efeito de hover */
+  }
+  
+  .signin-redirect {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .signin-redirect span {
+    color: #E50914;
+    cursor: pointer;
+    text-decoration: underline;
+  }

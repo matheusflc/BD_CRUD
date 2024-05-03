@@ -56,6 +56,26 @@ async function findByName(request, response) {
   }
 }
 
+async function getUserById(request, response) {
+  try {
+    const id = request.params.id; // Extrai o ID do usuário da URL
+    // Modifica a busca para incluir a população do campo vendedorId
+    const user = await User.findById(id)
+      .populate('purchaseHistory.vendedorId', 'name') // Adiciona a população do campo vendedorId. 'name' é o campo do vendedor que queremos retornar.
+      .exec(); // Executa a query
+
+    if (!user) {
+      return response.status(404).json({ error: "User not found" }); // Usuário não encontrado
+    }
+
+    return response.status(200).json(user); // Retorna o usuário encontrado com informações do vendedor populadas
+  } catch (error) {
+    console.error("Error in getUserById:", error);
+    return response.status(500).json({ error: "Internal Server Error" }); // Erro interno do servidor
+  }
+}
+
+
 async function report(request, response) {
   const [{ totalUsers }] = await User.aggregate([
     { $group: { _id: null, totalUsers: { $sum: 1 } } },
@@ -66,4 +86,34 @@ async function report(request, response) {
   return response.status(200).json([{ totalUsers }]);
 }
 
-export { getUsers, createUser, deleteUser, updateUser, findByName, report };
+async function finalizePurchase(request, response) {
+  const userId = request.params.userId; // Extrai o userId da URL
+  const { items , vendedorId } = request.body;
+  
+  try {
+    const purchase = {
+      items,
+      purchaseDate: new Date(),
+      vendedorId,
+    };
+
+    const user = await User.findByIdAndUpdate(
+      userId,
+      { $push: { purchaseHistory: purchase } },
+      { new: true }
+    );
+
+    
+
+    if (!user) {
+      return response.status(404).json({ error: "User not found" });
+    }
+
+    return response.status(200).json(user);
+  } catch (error) {
+    console.error("Error in finalizePurchase:", error);
+    return response.status(500).json({ error: "Internal Server Error" });
+  }
+}
+
+export { getUsers, createUser, deleteUser, updateUser, findByName, report, finalizePurchase , getUserById};

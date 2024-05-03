@@ -1,5 +1,23 @@
 import mongoose from "mongoose";
 
+const purchaseHistorySchema = new mongoose.Schema({
+  items: [{
+    productId: mongoose.Schema.Types.ObjectId,
+    name: String,
+    quantity: Number,
+    price: Number,
+  }],
+  purchaseDate: {
+    type: Date,
+    default: Date.now,
+  },
+  vendedorId: { // Adicionando o campo vendedorId
+    type: mongoose.Schema.Types.ObjectId, // Referenciando o modelo User, assumindo que vendedores são também usuários
+    ref: 'User',
+    required: false, // Pode ser opcional, dependendo da sua lógica de negócio
+  },
+});
+
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -41,6 +59,7 @@ const userSchema = new mongoose.Schema({
     required: true,
     default: false,
   },
+  purchaseHistory: [purchaseHistorySchema],
   createdAt: {
     type: Date,
     default: Date.now(),

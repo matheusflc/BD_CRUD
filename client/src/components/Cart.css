@@ -1,0 +1,49 @@
+.cart-container {
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+    color: #fff; /* Texto branco para contraste */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 300px; /* Ajuste conforme necessário */
+    margin: 20px;
+  }
+  
+  .cart-title {
+    color: #E50914; /* Cor vermelha da Netflix */
+    margin-bottom: 15px;
+  }
+  
+  .cart-items {
+    border-top: 1px solid #E50914; /* Linha divisória estilizada */
+    padding-top: 10px;
+  }
+  
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .item-name, .item-price {
+    color: #fff; /* Garante que o texto seja branco */
+  }
+  
+  .checkout-button {
+    background-color: #E50914; /* Botão vermelho da Netflix */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%; /* Faz o botão expandir para a largura total do container */
+  }
+  
+  .checkout-button:hover {
+    background-color: #F6121D; /* Um vermelho um pouco mais claro ao passar o mouse */
+  }
+  
+  /* Adiciona um pouco de espaço e visualização para o carrinho */
+  .cart-container {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  }

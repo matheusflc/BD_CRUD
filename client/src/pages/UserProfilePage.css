@@ -1,0 +1,41 @@
+.user-profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alterado de center para flex-start */
+    height: auto; /* Alterado de 100vh para auto */
+    min-height: 100vh; /* Garante que ocupará no mínimo a altura total da tela */
+    padding-top: 50px; /* Adicionado espaço no topo para evitar que o conteúdo inicie exatamente no topo da página */
+    background-color: #141414; /* Fundo escuro típico da Netflix */
+    overflow-y: auto; /* Mantém a barra de rolagem se o conteúdo exceder a altura */
+}
+
+.user-profile-card {
+    margin-top: 20px; /* Adicionado margem superior para distanciar do topo da página/container */
+    padding: 20px;
+    background-color: #181818; /* Card com fundo um pouco mais claro que o fundo da página */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 400px;
+}
+
+.user-profile-title {
+    color: #e50914; /* Vermelho Netflix */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.user-info {
+    color: #fff; /* Texto branco */
+}
+
+.user-info p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+html, body {
+    height: 100%;
+    margin: 0; /* Remove a margem padrão */
+    overflow-y: auto; /* Garante que a rolagem está habilitada */
+}

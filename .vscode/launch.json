@@ -2,6 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "launch react",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3001",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",

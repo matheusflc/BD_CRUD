@@ -1,27 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 //import { useAppContext } from '../AppContext';
 import { useAuth } from '../AuthContext';
+import { useAppContext } from '../AppContext';
 import './LoginPage.css'; // Importe o CSS aqui
 
 const LoginPage = () => {
     const [name, setName] = useState('');
     const [cpf, setCpf] = useState('');
     const [loginError, setLoginError] = useState(false);
-    const { handleLogin } = useAuth();
+    const { loginUser }   = useAppContext();
+    const { handleLogin, user } = useAuth();
     let navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const isAuthenticated = handleLogin({ name, cpf });
-        console.log(isAuthenticated);
-        if(isAuthenticated){
-            navigate('/'); // Redireciona para a HomePage
-        }else{
-            setLoginError(true);
-        }
+    useEffect(() => {
+      if (user) {
+          loginUser(user._id);
+          navigate('/');
+      }
+  }, [user, loginUser, navigate]);
+
+  const handleSubmit = (e) => {
+      e.preventDefault();
+      const isAuthenticated = handleLogin({ name, cpf });
+      if (!isAuthenticated) {
+          setLoginError(true);
+      }
+  };
+
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     const isAuthenticated = handleLogin({ name, cpf });
+    //     console.log(isAuthenticated);
+    //     if(isAuthenticated){
+    //         loginUser(user._id);
+    //         navigate('/'); // Redireciona para a HomePage
+    //     }else{
+    //         setLoginError(true);
+    //     }
         
-    };
+    // };
 
 
 

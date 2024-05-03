@@ -7,11 +7,47 @@ html, body {
     min-height: 100vh;
     background-image: url('/public/civic.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: top;
 }
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .quantity-selector button {
+    background-color: #E50914;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .quantity-selector span {
+    margin: 0 10px;
+  }
+
+.netflix-style-button {
+    background-color: #E50914;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .netflix-style-button:hover {
+    background-color: #F6121D;
+  }
 
 
 .homeContainer {
+    margin-top: 20px;
     display: flex;
     padding: 10px;
     flex-direction: column;
@@ -36,8 +72,8 @@ html, body {
 
   .homeContainer::before {
     content: '';
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: -10px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -98,6 +134,8 @@ html, body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
+
+
 buttonLogin {
     padding: 10px 20px;
     background-color: #e50914;
@@ -114,5 +152,25 @@ buttonLogin {
 }
 
 buttonLogin:hover {
+    background-color: #f6121d;
+}
+
+
+buttonSignup {
+    padding: 10px 20px;
+    background-color: #e50914;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 15px;
+    right: 110px;
+    z-index: 2;
+}
+
+buttonSignup:hover {
     background-color: #f6121d;
 }

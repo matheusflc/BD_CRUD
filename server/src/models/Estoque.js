@@ -17,6 +17,10 @@ const estoqueSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  mari : {
+    type: Boolean,
+    required: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
